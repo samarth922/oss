@@ -1,0 +1,19 @@
+name: artifact Demo
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: create file
+        run:|
+          mkdir temp
+          echo "alpha" > temp/alpha.html
+
+      - name: upload artifact
+       users: actions/upload-artifact@v4
+       with:
+         name: files
+         path: temp/
